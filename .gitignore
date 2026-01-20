@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# generated files
+db.sqlite3
+
 # custom files
 brain_storming.txt
