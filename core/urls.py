@@ -1,9 +1,9 @@
 from django.urls import path, URLPattern, URLResolver
-from . import views 
+from .views import TaskListView 
 
 
 urlpatterns: list[URLPattern | URLResolver] = [
-    # path('', views.test_function_view, name="test"),
+   path('', TaskListView.as_view(), name="tasks"),
 ]
 
 # eosc

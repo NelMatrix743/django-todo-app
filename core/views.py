@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
+from django.views.generic.list import ListView
+
+from .models import Task
 
 
-# def test_function_view(request: HttpRequest) -> HttpResponse:
-#     return HttpResponse("Test Function View is working!")
+class TaskListView(ListView):
+    model = Task
+    template_name = 'core/tasks.html'
+    context_object_name = 'tasks'
 
+
+
+# eosc
