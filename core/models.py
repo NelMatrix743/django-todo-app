@@ -16,7 +16,7 @@ class Task(models.Model):
 
 
     def __str__(self) -> str:
-        return f"{self.title}|{self.completion_status}|{self.datetime_created}"
+        return f"{self.title} [status: {str(self.completion_status).lower()}]"
 
 
     class Meta:
