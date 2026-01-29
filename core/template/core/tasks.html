@@ -19,7 +19,8 @@
         {% for task in tasks %}
             <tr>
                 <td>{{ task.title }} | {{ task.completion_status }}</td>
-                <td><a href="{% url 'task' task.id %}">task detail</a></td>
+                <td><a href="{% url 'task' task.id %}">Detail</a></td>
+                <td><a href="{% url 'update-task' task.id %}">Edit</a></td>
             </tr>
             {% empty %}
             <h3>No tasks in task list</h3>
