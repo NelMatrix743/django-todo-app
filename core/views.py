@@ -1,7 +1,10 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import (
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from django.urls import reverse_lazy
 
 from .models import Task
@@ -30,4 +33,9 @@ class TaskUpdateView(UpdateView):
     success_url = reverse_lazy("tasks")
 
 
-# eosc
+class TaskDeleteView(DeleteView):
+    model = Task
+    context_object_name = 'task'
+    success_url = reverse_lazy("tasks")
+
+# eosc 
