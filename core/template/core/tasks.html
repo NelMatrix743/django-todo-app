@@ -7,6 +7,15 @@
 </head>
 <body>
     
+    {% if request.user.is_authenticated %}
+        <h1>USERNAME: [{{ request.user }}]</h1>
+        <a href="">LOGOUT</a>
+    {% else %}
+        <a href="{% url 'login' %}">LOGIN</a>
+    {% endif %}
+    
+    <hr>
+
     <h1>TODO TASK LIST</h1>
 
     <a href="{% url 'create-task' %}">Add New Task</a>
