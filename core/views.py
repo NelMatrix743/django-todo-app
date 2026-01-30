@@ -6,6 +6,8 @@ from django.views.generic.edit import (
     DeleteView
 )
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
+
 from django.urls import reverse_lazy
 
 from .models import Task
@@ -18,6 +20,10 @@ class SystemLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy("tasks")
+    
+
+class SystemLogoutView(LogoutView):
+    next_page = "login"
 
 
 class TaskListView(ListView):
