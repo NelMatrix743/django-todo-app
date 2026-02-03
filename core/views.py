@@ -33,13 +33,19 @@ class TaskListView(LoginRequiredMixin, ListView):
     template_name = 'core/tasks.html'
     context_object_name = 'tasks'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tasks_owner = self.request.user
+        context["tasks"] = context["tasks"].filter(user=tasks_owner)
+        return context
+
 
 class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = "task"
 
 
-class TaskCreateView(LoginRequiredMixin, CreateView):
+class TaskCreateView(CreateView):
     model = Task
     fields = "__all__"
     success_url = reverse_lazy("tasks")

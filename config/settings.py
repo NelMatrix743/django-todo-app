@@ -115,6 +115,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+# where to redirect un-authenticated users
+LOGIN_URL = "login"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
