@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import (
@@ -40,6 +41,11 @@ class SystemRegisterView(FormView):
         user = form.save()
         login(self.request, user)
         return super().form_valid(form)
+
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect("tasks")
+        return super().get(args, kwargs)
 
 
 class TaskListView(LoginRequiredMixin, ListView):
