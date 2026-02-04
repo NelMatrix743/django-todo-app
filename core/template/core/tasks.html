@@ -21,7 +21,15 @@
 
     <h1>TODO TASK LIST</h1>
 
-    <a href="{% url 'create-task' %}">Add New Task</a>
+    <div>
+
+        <a href="{% url 'create-task' %}">Add New Task</a>
+        <form method="GET" action="">
+            <input type="text" name="search-area" value="{{ search_input }}">
+            <button type="submit">SEARCH</button>
+        </form>
+
+    </div>
 
     <table>
         <tr>

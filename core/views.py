@@ -57,6 +57,14 @@ class TaskListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         tasks_owner = self.request.user
         context["tasks"] = context["tasks"].filter(user=tasks_owner)
+
+        # search request
+        search_input = self.request.GET.get("search-area") or ''
+        if search_input:
+            context["tasks"] = context["tasks"].filter(
+                title__icontains=search_input
+            )
+        context["search-input"] = search_input
         return context
 
 
