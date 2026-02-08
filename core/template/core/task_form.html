@@ -1,3 +1,6 @@
+{% extends "core/main.html" %}
+{% block content %}
+
 <h1>TASK CREATION PAGE</h1>
 
 <a href="{% url 'tasks' %}">Go Back To Task List</a>
@@ -9,3 +12,5 @@
     <button type="submit">CREATE TASK</button>
 
 </form>
+
+{% endblock content %}

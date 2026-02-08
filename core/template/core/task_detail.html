@@ -1,5 +1,10 @@
+{% extends "core/main.html" %}
+{% block content %}
+
 <a href="{% url 'tasks' %}">Go Back To Task List</a>
 
 <h2>Task Title: {{task.title}}</h2>
 <h2>Task Description:  {{task.description}}</h2>
 <h2>Task Status: {{task.completion_status}}</h2>
+
+{% endblock content %}
