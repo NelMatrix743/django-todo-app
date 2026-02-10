@@ -52,9 +52,20 @@
             </div>
             {% endif %}
             <div class="task-completion-icon"></div>
-            <a class="edit-btn">
-                <img class="btn-img" src="{% static 'icons/edit_icon.png' %}" alt="">
-            </a>
+
+            <div class="actions-container">
+
+                <a href="{% url 'task' task.id %}">
+                    <img class="btn-img" src="{% static 'icons/view_details_icon.png' %}" alt="">
+                </a>
+                <a href="{% url 'update-task' task.id %}">
+                    <img class="btn-img" src="{% static 'icons/edit_icon.png' %}" alt="">
+                </a>
+                <a href="{% url 'delete-task' task.id %}">
+                    <img class="btn-img" src="{% static 'icons/delete_icon.png' %}" alt="">
+                </a>
+
+            </div>
         </div>
     {% endfor %}
 
