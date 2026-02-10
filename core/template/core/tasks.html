@@ -9,25 +9,23 @@
                 Hello, {{ request.user|title }}
             </h1>
             <h3 style="margin: 0px;">
-                    Number of incomplete tasks: <i>{{ incomplete_count }}</i>
+                [incompleted tasks]: <i>{{ incomplete_count }}</i>
             </h3>            
         </div>
  
         {% if request.user.is_authenticated %}
             <form method="POST"action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button type="submit">LOGOUT</button>
+                <button type="submit" class="authentication">LOGOUT</button>
             </form>
         {% else %}
-            <a href="{% url 'login' %}">LOGIN</a>
+            <a href="{% url 'login' %}" class="authentication">LOGIN</a>
         {% endif %}
 
     </div>
 
 
 <div class="main-section">
-
-    <h1>TODO TASK LIST</h1>
 
     <div>
 

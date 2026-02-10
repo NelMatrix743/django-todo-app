@@ -13,7 +13,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "consolas", sans-serif;
     }
 
     body {
@@ -35,6 +35,43 @@
         background-color: #ffffff;
         -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
         box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        color: white;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+        background: #206083;
+    }
+
+    .greet-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .authentication {
+        background: #206083;
+        color: white;
+        border: 2px solid white;
+        border-radius: 5px;
+        padding: 5px 40px;
+        font-weight: 600;
+    }
+
+    .authentication:active {
+        background: white;
+        color: #206083;
+        border: none;
+        transition: 1s;
+    }
+
+
+    .main-section {
+        padding: 10px 20px;
     }
 
     </style>
