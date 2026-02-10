@@ -42,16 +42,22 @@
 
     {% for task in tasks %}
         <div class="task-wrapper">
-            {% if task.completion_status %}
+
+            <div class="completion-icon-title">
+
+                <div class="task-completion-icon"></div>
+                
+                {% if task.completion_status %}
+                    <div class="task-title">
+                        <i><s>{{ task.title }}</s></i>
+                    </div>
+                {% else %}
                 <div class="task-title">
-                    <i><s>{{ task.title }}</s></i>
+                    {{ task.title }}
                 </div>
-            {% else %}
-            <div class="task-title">
-                {{ task.title }}
+                {% endif %}
+
             </div>
-            {% endif %}
-            <div class="task-completion-icon"></div>
 
             <div class="actions-container">
 
