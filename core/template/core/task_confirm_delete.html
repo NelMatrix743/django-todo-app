@@ -1,14 +1,23 @@
 {% extends "core/main.html" %}
+{% load static %}
 {% block content %}
 
-<a href="{% url 'tasks' %}">Go Back To Task List</a>
+<div class="header-bar">
+    <a href="{% url 'tasks' %}"> &#8592; BACK</a>
+</div>
 
-<form method="POST" action="">
+<div class="delete-form-container">
 
-    {% csrf_token %}
-    <h3>Do you really wish to delete this task?</h3>
-    <button type="submit">CONFIRM</button>
+    <form method="POST" action="">
+        
+        <img src="{% static 'icons/warning_icon.png' %}" alt="">
 
-</form>
+        {% csrf_token %}
+        <h3>Do you really wish to delete this task?</h3>
+        <button class="delete-btn" type="submit">CONFIRM</button>
+
+    </form>
+
+</div>
 
 {% endblock content %}
