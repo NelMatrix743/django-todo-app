@@ -1,16 +1,26 @@
 {% extends "core/main.html" %}
 {% block content %}
 
-<h1>TASK CREATION PAGE</h1>
+<div class="header-bar">
 
-<a href="{% url 'tasks' %}">Go Back To Task List</a>
+    <a href="{% url 'tasks' %}">&#8592; BACK</a>
+    <h1>TASK CREATION</h1>
 
-<form method="POST" action="">
+</div>
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">CREATE TASK</button>
 
-</form>
+<div class="task-creation-container">
+
+    <a href="{% url 'tasks' %}">Go Back To Task List</a>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">CREATE TASK</button>
+
+    </form>
+
+</div>
 
 {% endblock content %}
