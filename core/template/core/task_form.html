@@ -11,13 +11,14 @@
 
 <div class="task-creation-container">
 
-    <a href="{% url 'tasks' %}">Go Back To Task List</a>
-
     <form method="POST" action="">
 
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">CREATE TASK</button>
+        
+        <div class="btn-container">
+            <button type="submit">APPLY</button>
+        </div>
 
     </form>
 

@@ -87,17 +87,45 @@
     .task-creation-container form {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
-    .task-creation-container form input {
-        width: 100%;
+    .task-creation-container form p label {
+        margin-bottom: 10px;
     }
 
-
+    .task-creation-container form input,
     .task-creation-container form textarea {
         width: 100%;
     }
 
+    p:has([for="id_completion_status"]) {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #id_completion_status {
+        width: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .task-creation-container form button {
+        width: 40%;
+        height: 30px;
+        background: #206083;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
 
 
 
