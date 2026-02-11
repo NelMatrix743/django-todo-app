@@ -1,17 +1,27 @@
 {% extends "core/main.html" %}
 {% block content %}
 
+ <div class="header-bar">
+        <h1 class="login-title">LOGIN</h1>
+</div>
 
-<h1>LOGIN PAGE</h1>
+<div class="login-container">
 
-<form method="POST" action="">
+    <form method="POST" action="">
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">LOGIN</button>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-container">
+            <button type="submit">LOGIN</button>
+        </div>
 
-</form>
+    </form>
 
-<p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    <p class="registration">
+        Don't have an account?
+        <a href="{% url 'register' %}">Register</a>
+    </p>
+
+</div>
 
 {% endblock content %}
