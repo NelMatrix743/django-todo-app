@@ -28,52 +28,57 @@
 
 <div class="main-section">
 
-    <div>
+    <div class="search-interface">
 
-        <a href="{% url 'create-task' %}">Add New Task</a>
         <form method="GET" action="">
             <input type="text" name="search-area" value="{{ search_input }}">
-            <button type="submit">SEARCH</button>
+            <button type="submit">
+                <img src="{% static 'icons/search_icon.png' %}" alt="">
+            </button>
         </form>
 
-    </div>
+   </div>
 
-<div class="task-items-container">
+    <a href="{% url 'create-task' %}">Add New Task</a>
 
-    {% for task in tasks %}
-        <div class="task-wrapper">
+    <div class="task-items-container">
 
-            <div class="completion-icon-title">
-                
-                {% if task.completion_status %}
-                    <div class="task-completion-icon"></div>
+        {% for task in tasks %}
+            <div class="task-wrapper">
+
+                <div class="completion-icon-title">
+                    
+                    {% if task.completion_status %}
+                        <div class="task-completion-icon"></div>
+                        <div class="task-title">
+                            <i><s>{{ task.title }}</s></i>
+                        </div>
+                    {% else %}
+                    <div class="task-incompletion-icon"></div>
                     <div class="task-title">
-                        <i><s>{{ task.title }}</s></i>
+                        {{ task.title }}
                     </div>
-                {% else %}
-                <div class="task-incompletion-icon"></div>
-                <div class="task-title">
-                    {{ task.title }}
+                    {% endif %}
+
                 </div>
-                {% endif %}
 
+                <div class="actions-container">
+
+                    <a href="{% url 'task' task.id %}">
+                        <img class="btn-img" src="{% static 'icons/view_details_icon.png' %}" alt="">
+                    </a>
+                    <a href="{% url 'update-task' task.id %}">
+                        <img class="btn-img" src="{% static 'icons/edit_icon.png' %}" alt="">
+                    </a>
+                    <a href="{% url 'delete-task' task.id %}">
+                        <img class="btn-img" src="{% static 'icons/delete_icon.png' %}" alt="">
+                    </a>
+
+                </div>
             </div>
+        {% endfor %}
 
-            <div class="actions-container">
-
-                <a href="{% url 'task' task.id %}">
-                    <img class="btn-img" src="{% static 'icons/view_details_icon.png' %}" alt="">
-                </a>
-                <a href="{% url 'update-task' task.id %}">
-                    <img class="btn-img" src="{% static 'icons/edit_icon.png' %}" alt="">
-                </a>
-                <a href="{% url 'delete-task' task.id %}">
-                    <img class="btn-img" src="{% static 'icons/delete_icon.png' %}" alt="">
-                </a>
-
-            </div>
-        </div>
-    {% endfor %}
+    </div>
 
 </div>
 
