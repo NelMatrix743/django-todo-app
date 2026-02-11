@@ -39,7 +39,10 @@
 
    </div>
 
-    <a href="{% url 'create-task' %}">Add New Task</a>
+    <a class="add-task" href="{% url 'create-task' %}">
+        ADD NEW TASK
+        <img src="{% static 'icons/add_icon.png' %}" alt="">
+    </a>
 
     <div class="task-items-container">
 
