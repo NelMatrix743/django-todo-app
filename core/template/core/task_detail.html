@@ -1,10 +1,33 @@
 {% extends "core/main.html" %}
 {% block content %}
 
-<a href="{% url 'tasks' %}">Go Back To Task List</a>
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; BACK</a>
+</div>
 
-<h2>Task Title: {{task.title}}</h2>
-<h2>Task Description:  {{task.description}}</h2>
-<h2>Task Status: {{task.completion_status}}</h2>
+<div class="task-detail-container">
+
+    <div class="sub-detail-container">
+        <h2>TASK TITLE:</h2>
+        <h3>{{task.title}}</h3>
+    </div>
+
+    <div class="sub-detail-container">
+        <h2>TASK DESCRIPTION:</h2>
+        <h3>{{task.description}}</h3>
+    </div>
+
+    <div class="sub-detail-container">
+        <h2>TASK STATUS:</h2>
+        <div class="status-container">
+            {% if task.completion_status %}
+                <h3 class="completed-status">COMPLETED</h3>
+            {% else %}
+                <h3 class="incompleted-status">INCOMPLETED</h3>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
 
 {% endblock content %}
